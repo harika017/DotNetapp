@@ -85,7 +85,7 @@ stages:
           - task: Kubernetes@1
             displayName: 'kubectl get'
             inputs:
-              connectionType: 'Kubernetes Service Connection'              
-              namespace: 'Hosted VS2017'
+              connectionType: 'Kubernetes Service Connection'    
+              namespace: 'default'          
               command: get
               arguments: pods
