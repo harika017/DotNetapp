@@ -11,6 +11,7 @@ variables:
   EnvironmentPreName: 'ProdEnvironment'
   EnvironmentNamePostFix: 'DotNetApp'
   EnvironmentK8Resource: 'default'
+  DeploymentJobPoolName: 'Hosted VS2017'
 
 stages:
 - stage: 'Build'
@@ -57,8 +58,7 @@ stages:
   jobs:
   - deployment: 'DeploymentJob'
     environment: $(EnvironmentPreName)-$(EnvironmentNamePostFix).$(EnvironmentK8Resource)
-    pool:
-      name: Hosted VS2017
+    pool: $(DeploymentJobPoolName)
     strategy:
       runOnce:
         deploy:
