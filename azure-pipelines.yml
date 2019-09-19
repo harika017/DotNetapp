@@ -57,7 +57,7 @@ stages:
   dependsOn: Build
   jobs:
   - deployment: 'DeploymentJob'
-    environment: $(EnvironmentPreName)-$(EnvironmentNamePostFix).default
+    environment: $(EnvironmentPreName)-$(EnvironmentNamePostFix).$(EnvironmentK8Resource)
     pool: $(DeploymentJobPoolName)
     strategy:
       runOnce:
